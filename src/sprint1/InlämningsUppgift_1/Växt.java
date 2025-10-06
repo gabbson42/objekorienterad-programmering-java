@@ -5,7 +5,7 @@ package sprint1.InlämningsUppgift_1;
 public class Växt  implements VattningsProtokoll {
 
     /*Exempel på inkapsling. Valt att göra variablerna private och
-    *istället använda setters och getters där nödvändigt för att komma åt variablerna utifrån klassen.*/
+    * istället använda setters och getters där nödvändigt för att komma åt variablerna utifrån klassen.*/
     private String namn;
     private double höjd;
     private VätskeTyp vätskeTyp;
