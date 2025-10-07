@@ -1,0 +1,13 @@
+package sprint1.ÖvningsUppgifter.Uppgift_9;
+
+import sprint1.Uppgift_9.Romersksiffra;
+
+public class Uppgift9 {
+
+    public static void main(String[] args){
+
+        for(Romersksiffra r : Romersksiffra.values()){
+            System.out.println(r + " is " + r.getNumber());
+        }
+    }
+}
