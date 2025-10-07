@@ -18,25 +18,33 @@ public class Greenest {
         List<Växt> allaVäxter = new ArrayList<>();
         Collections.addAll(allaVäxter, igge, laura, meatLoaf, olof);
 
-        try {
-            String växt = JOptionPane.showInputDialog("Vilken växt ska få vätska?");
-            boolean växtHittad = false;
+        String växt = JOptionPane.showInputDialog("Vilken växt ska få vätska?");
 
-            for (Växt v : allaVäxter) {
-                if (växt.equalsIgnoreCase(v.getNamn())) {
-                    växtHittad = true;
-
-                    JOptionPane.showMessageDialog(null, v.getNamn() +
-                            " ska få " + v.getVätskeMängd() + " liter " +
-                            v.getVätskeTyp().toString().toLowerCase());
-                }
-            }
-
-            if (!växtHittad) {
-                JOptionPane.showMessageDialog(null, "Växten kunde ej hittas");
-            }
-        } catch (NullPointerException e) {
+        if (växt == null) {
             JOptionPane.showMessageDialog(null, "Program avbrutet");
+            return;
+        }
+
+        if (växt.isBlank()) {
+            JOptionPane.showMessageDialog(null, "Du måste fylla i ett namn");
+            return;
+        }
+
+        boolean växtHittad = false;
+        for (Växt v : allaVäxter) {
+            if (växt.trim().equalsIgnoreCase(v.getNamn())) {
+                växtHittad = true;
+
+                JOptionPane.showMessageDialog(null, v.getNamn() +
+                        " ska få " + v.getVätskeMängd() + " liter " +
+                        v.getVätskeTyp().toString().toLowerCase());
+                break;
+            }
+        }
+
+        if (!växtHittad) {
+            JOptionPane.showMessageDialog(null, "Ingen växt med namnet \"" +
+                    växt + "\" kunde hittas");
         }
     }
 

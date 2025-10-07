@@ -1,6 +1,5 @@
 package InlämningsUppgifter.InlämningsUppgift_1;
 
-/*Exempel på arv. Kaktus ärver Växt.*/
 public class Kaktus extends Växt {
 
     private final double kaktusDagligVätska = 0.02;

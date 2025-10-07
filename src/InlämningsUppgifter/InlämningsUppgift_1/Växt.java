@@ -1,7 +1,6 @@
 package InlämningsUppgifter.InlämningsUppgift_1;
 
-/*Implementerar interfacet VattningsProtokoll som innehåller metoden getVätskeMängd.
-* Alla subklasser till Växt använder sig av denna metod och ger olika resultat(Polymorphism)*/
+/* Superklass. Alla subklasser till Växt ärver denna superklass.*/
 public class Växt  implements VattningsProtokoll {
 
     /*Exempel på inkapsling. Valt att göra variablerna private och
@@ -31,6 +30,8 @@ public class Växt  implements VattningsProtokoll {
         this.vätskeTyp = vätskeTyp;
     }
 
+    /*Metod implementerad från interfacet "VattningsProtokoll".
+    * Ger olika resultat beroende på vilket subklass som använder metoden (Polymorfism) */
     @Override
     public double getVätskeMängd() {
         return 0;
