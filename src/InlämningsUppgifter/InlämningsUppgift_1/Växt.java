@@ -1,4 +1,4 @@
-package sprint1.InlämningsUppgifter.InlämningsUppgift_1;
+package InlämningsUppgifter.InlämningsUppgift_1;
 
 /*Implementerar interfacet VattningsProtokoll som innehåller metoden getVätskeMängd.
 * Alla subklasser till Växt använder sig av denna metod och ger olika resultat(Polymorphism)*/

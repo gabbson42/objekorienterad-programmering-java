@@ -1,4 +1,4 @@
-package sprint1.InlämningsUppgifter.InlämningsUppgift_1;
+package InlämningsUppgifter.InlämningsUppgift_1;
 
 import javax.swing.*;
 import java.util.ArrayList;

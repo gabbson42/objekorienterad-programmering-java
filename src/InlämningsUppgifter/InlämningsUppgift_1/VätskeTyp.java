@@ -1,4 +1,4 @@
-package sprint1.InlämningsUppgifter.InlämningsUppgift_1;
+package InlämningsUppgifter.InlämningsUppgift_1;
 
 /* Skapat enums av vätsketyper då de är konstanter som existerar individuellt från växter och dess subklasser. */
 public enum VätskeTyp {

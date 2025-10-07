@@ -1,4 +1,4 @@
-package sprint1.InlämningsUppgifter.InlämningsUppgift_1;
+package InlämningsUppgifter.InlämningsUppgift_1;
 
 /*Exempel på arv. Palm ärver Växt.*/
 public class Palm extends Växt {
