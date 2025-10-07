@@ -1,20 +1,16 @@
 package sprint1.ÖvningsUppgifter.Uppgift_3;
 
-import sprint1.Uppgift_3.Kurs;
-import sprint1.Uppgift_3.Lärare;
-import sprint1.Uppgift_3.Student;
-
 public class Uppgift3 {
 
     public Uppgift3() {
 
-        sprint1.Uppgift_3.Student gabriel = new sprint1.Uppgift_3.Student("Gabriel", 31);
-        sprint1.Uppgift_3.Student angelica = new sprint1.Uppgift_3.Student("Angelica", 32);
-        sprint1.Uppgift_3.Student rikard = new sprint1.Uppgift_3.Student("Rikard", 26);
+        Student gabriel = new Student("Gabriel", 31);
+        Student angelica = new Student("Angelica", 32);
+        Student rikard = new Student("Rikard", 26);
 
-        sprint1.Uppgift_3.Lärare david = new Lärare("David", 36);
+        Lärare david = new Lärare("David", 36);
 
-        sprint1.Uppgift_3.Kurs engelska = new sprint1.Uppgift_3.Kurs("Engelska");
+        Kurs engelska = new Kurs("Engelska");
 
         david.undervisarIKurs(engelska);
         engelska.läggTillLärare(david);

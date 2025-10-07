@@ -1,8 +1,5 @@
 package sprint1.ÖvningsUppgifter.Uppgift_2;
 
-import sprint1.Uppgift_2.Fordon;
-import sprint1.Uppgift_2.HjulBuren;
-import sprint1.Uppgift_2.Printable;
 
 public class Bil extends Fordon implements Printable, HjulBuren {
 

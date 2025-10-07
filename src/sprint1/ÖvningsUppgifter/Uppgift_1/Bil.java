@@ -1,6 +1,5 @@
 package sprint1.ÖvningsUppgifter.Uppgift_1;
 
-import sprint1.Uppgift_1.Bilägare;
 
 public class Bil {
 

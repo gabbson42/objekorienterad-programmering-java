@@ -1,7 +1,5 @@
 package sprint1.ÖvningsUppgifter.Uppgift_3d;
 
-import sprint1.Uppgift_3d.Lärare;
-
 public class Kurs {
 
     private String kursNamn;

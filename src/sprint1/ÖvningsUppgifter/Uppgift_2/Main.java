@@ -1,10 +1,5 @@
 package sprint1.ÖvningsUppgifter.Uppgift_2;
 
-import sprint1.Uppgift_2.*;
-import sprint1.Uppgift_2.Bil;
-import sprint1.Uppgift_2.Båt;
-import sprint1.Uppgift_2.Tåg;
-
 public class Main {
 
     public void printFordon(Fordon fordon){
@@ -21,19 +16,19 @@ public class Main {
 
     public Main() {
 
-        sprint1.Uppgift_2.Bil bil = new sprint1.Uppgift_2.Bil(150, 400, 6, 3);
+        Bil bil = new Bil(150, 400, 6, 3);
         bil.växla(5);
         bil.printMe();
         System.out.println();
 
-        sprint1.Uppgift_2.Båt båt = new Båt(20, 200, 100);
+        Båt båt = new Båt(20, 200, 100);
         båt.sväng("Babord");
         båt.printMe();
         System.out.println();
 
         Cykel cykel = new Cykel(30, 15, 3, 1);
 
-        sprint1.Uppgift_2.Tåg tåg = new Tåg(200, 1000, 5);
+        Tåg tåg = new Tåg(200, 1000, 5);
         tåg.kopplaVagn(3);
         tåg.printMe();
         tåg.kopplaVagn(-2);

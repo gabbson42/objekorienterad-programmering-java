@@ -1,11 +1,5 @@
 package sprint1.ÖvningsUppgifter.Uppgift_3d;
 
-import sprint1.Uppgift_3d.Deltagande;
-import sprint1.Uppgift_3d.Kurs;
-import sprint1.Uppgift_3d.Lärare;
-import sprint1.Uppgift_3d.Printer;
-import sprint1.Uppgift_3d.Student;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,9 +7,9 @@ public class Uppgift3d {
 
     public Uppgift3d() {
 
-        sprint1.Uppgift_3d.Student gabriel = new sprint1.Uppgift_3d.Student("Gabriel", 31);
-        sprint1.Uppgift_3d.Student angelica = new sprint1.Uppgift_3d.Student("Angelica", 32);
-        sprint1.Uppgift_3d.Student rikard = new sprint1.Uppgift_3d.Student("Rikard", 26);
+        Student gabriel = new Student("Gabriel", 31);
+        Student angelica = new Student("Angelica", 32);
+        Student rikard = new Student("Rikard", 26);
 
         List<Student> studenter = new ArrayList<>();
 
@@ -23,10 +17,10 @@ public class Uppgift3d {
         studenter.add(angelica);
         studenter.add(rikard);
 
-        sprint1.Uppgift_3d.Lärare david = new Lärare("David", 36);
+        Lärare david = new Lärare("David", 36);
 
-        sprint1.Uppgift_3d.Kurs engelska = new sprint1.Uppgift_3d.Kurs("Engelska");
-        sprint1.Uppgift_3d.Kurs svenska = new Kurs("Svenska");
+        Kurs engelska = new Kurs("Engelska");
+        Kurs svenska = new Kurs("Svenska");
 
         david.undervisarIKurs(engelska);
         engelska.läggTillLärare(david);
@@ -45,7 +39,7 @@ public class Uppgift3d {
         deltagare.add(eng2);
         deltagare.add(eng3);
 
-        sprint1.Uppgift_3d.Printer print = new Printer();
+        Printer print = new Printer();
         print.printStudent(gabriel, deltagare);
         print.printStudent(angelica, deltagare);
         System.out.println();

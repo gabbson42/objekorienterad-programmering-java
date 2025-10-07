@@ -1,18 +1,15 @@
 package sprint1.ÖvningsUppgifter.Uppgift_1_Live;
 
-import sprint1.Uppgift_1_Live.Car;
-import sprint1.Uppgift_1_Live.Person;
-
 public class CarOwner extends Person {
 
-    private sprint1.Uppgift_1_Live.Car car;
+    private Car car;
 
-    public CarOwner(String name, int age, String address, sprint1.Uppgift_1_Live.Car car) {
+    public CarOwner(String name, int age, String address, Car car) {
         super(name, age, address);
         this.car = car;
     }
 
-    public sprint1.Uppgift_1_Live.Car getCar() {
+    public Car getCar() {
         return car;
     }
 

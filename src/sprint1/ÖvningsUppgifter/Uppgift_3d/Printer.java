@@ -1,9 +1,5 @@
 package sprint1.ÖvningsUppgifter.Uppgift_3d;
 
-import sprint1.Uppgift_3d.Deltagande;
-import sprint1.Uppgift_3d.Kurs;
-import sprint1.Uppgift_3d.Student;
-
 import java.util.List;
 
 public class Printer {

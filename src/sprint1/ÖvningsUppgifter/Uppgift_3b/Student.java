@@ -1,20 +1,17 @@
 package sprint1.ÖvningsUppgifter.Uppgift_3b;
 
-import sprint1.Uppgift_3b.Kurs;
-import sprint1.Uppgift_3b.Person;
-
 import java.util.ArrayList;
 
 public class Student extends Person {
 
-    private ArrayList<sprint1.Uppgift_3b.Kurs> deltarIKurser;
+    private ArrayList<Kurs> deltarIKurser;
 
     public Student(String namn, int ålder) {
         super(namn, ålder);
         deltarIKurser = new ArrayList<>();
     }
 
-    public void deltaIKurs(sprint1.Uppgift_3b.Kurs kurs) {
+    public void deltaIKurs(Kurs kurs) {
         deltarIKurser.add(kurs);
     }
 

@@ -1,8 +1,5 @@
 package sprint1.ÖvningsUppgifter.Uppgift_3b;
 
-import sprint1.Uppgift_3b.Lärare;
-import sprint1.Uppgift_3b.Student;
-
 import java.util.ArrayList;
 
 public class Kurs {

@@ -1,8 +1,5 @@
 package sprint1.ÖvningsUppgifter.Uppgift_3;
 
-import sprint1.Uppgift_3.Lärare;
-import sprint1.Uppgift_3.Student;
-
 public class Kurs {
 
     private String kursNamn;

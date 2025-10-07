@@ -1,9 +1,5 @@
 package sprint1.ÖvningsUppgifter.Uppgift_3b;
 
-import sprint1.Uppgift_3b.Kurs;
-import sprint1.Uppgift_3b.Lärare;
-import sprint1.Uppgift_3b.Student;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -11,19 +7,19 @@ public class Uppgift3b {
 
     public Uppgift3b() {
 
-        sprint1.Uppgift_3b.Student gabriel = new sprint1.Uppgift_3b.Student("Gabriel", 31);
-        sprint1.Uppgift_3b.Student angelica = new sprint1.Uppgift_3b.Student("Angelica", 32);
-        sprint1.Uppgift_3b.Student rikard = new sprint1.Uppgift_3b.Student("Rikard", 26);
+        Student gabriel = new Student("Gabriel", 31);
+        Student angelica = new Student("Angelica", 32);
+        Student rikard = new Student("Rikard", 26);
 
-        List<sprint1.Uppgift_3b.Student> allaStudenter = new ArrayList<>();
+        List<Student> allaStudenter = new ArrayList<>();
         allaStudenter.add(gabriel);
         allaStudenter.add(angelica);
         allaStudenter.add(rikard);
 
-        sprint1.Uppgift_3b.Lärare david = new Lärare("David", 36);
+        Lärare david = new Lärare("David", 36);
 
-        sprint1.Uppgift_3b.Kurs engelska = new sprint1.Uppgift_3b.Kurs("Engelska");
-        sprint1.Uppgift_3b.Kurs svenska = new sprint1.Uppgift_3b.Kurs("Svenska");
+        Kurs engelska = new Kurs("Engelska");
+        Kurs svenska = new Kurs("Svenska");
 
         david.undervisarIKurs(engelska);
         engelska.läggTillLärare(david);
@@ -47,17 +43,17 @@ public class Uppgift3b {
 
     }
 
-    public void printKlassLista(sprint1.Uppgift_3b.Kurs kurs){
+    public void printKlassLista(Kurs kurs){
         System.out.println("Kurs: " + kurs.getKursNamn() +
                 "\nLärare: " + kurs.getLärare().getNamn());
 
         System.out.println("Studenter: ");
-        for(sprint1.Uppgift_3b.Student s : kurs.getStudenter()){
+        for(Student s : kurs.getStudenter()){
             System.out.println(s.getNamn());
         }
     }
 
-    public void printStudentMedKurser(List<sprint1.Uppgift_3b.Student> allaStudenter){
+    public void printStudentMedKurser(List<Student> allaStudenter){
 
         for(Student s : allaStudenter){
             System.out.println(s.getNamn());
