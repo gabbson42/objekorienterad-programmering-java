@@ -1,6 +1,6 @@
 package InlämningsUppgifter.InlämningsUppgift_1;
 
-/* Superklass. Alla subklasser till Växt ärver denna superklass.*/
+/* Superklass. Ärvs av subklasserna Kaktus, Palm och KöttätandeVäxt. */
 public class Växt  implements VattningsProtokoll {
 
     /*Exempel på inkapsling. Valt att göra variablerna private och
@@ -31,7 +31,7 @@ public class Växt  implements VattningsProtokoll {
     }
 
     /*Metod implementerad från interfacet "VattningsProtokoll".
-    * Ger olika resultat beroende på vilket subklass som använder metoden (Polymorfism) */
+    * Ger olika resultat beroende på vilken subklass som använder metoden (Polymorfism) */
     @Override
     public double getVätskeMängd() {
         return 0;
