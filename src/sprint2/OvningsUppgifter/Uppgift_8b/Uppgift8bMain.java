@@ -1,6 +1,7 @@
 package sprint2.OvningsUppgifter.Uppgift_8b;
 
-import java.io.File;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -12,7 +13,7 @@ public class Uppgift8bMain {
 
         List<Double> temperatureList = new ArrayList<>();
 
-        File file = new File("src/sprint2/OvningsUppgifter/Uppgift_8a/temp.txt");
+        Path file = Paths.get("src/sprint2/OvningsUppgifter/Uppgift_8a/temp.txt");
 
         String tempLine;
         try (Scanner sc = new Scanner(file)) {
