@@ -1,7 +1,6 @@
 package sprint2.OvningsUppgifter.Uppgift_8b;
 
 import java.io.File;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -22,7 +21,7 @@ public class Uppgift8bMain {
                 temperatureList.add(Double.parseDouble(tempLine.replaceAll(",", ".")));
             }
 
-        } catch (IOException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
 
