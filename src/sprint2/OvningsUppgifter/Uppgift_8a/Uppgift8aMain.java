@@ -1,4 +1,4 @@
-package sprint2.OvningsUppgifter.Uppgift_8;
+package sprint2.OvningsUppgifter.Uppgift_8a;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -7,14 +7,14 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public class Uppgift8Main {
+public class Uppgift8aMain {
 
-    public Uppgift8Main(){
+    public Uppgift8aMain(){
 
         List<Double> temperatureList = new ArrayList<>();
 
         try(BufferedReader buf = new BufferedReader
-                (new FileReader("src/sprint2/OvningsUppgifter/Uppgift_8/temp.txt"))){
+                (new FileReader("src/sprint2/OvningsUppgifter/Uppgift_8a/temp.txt"))){
 
             String tempLine;
             while((tempLine = buf.readLine()) != null){
@@ -26,11 +26,10 @@ public class Uppgift8Main {
         }
 
         Collections.sort(temperatureList);
-
         double lowestTemp = temperatureList.getFirst();
         double highestTemp = temperatureList.getLast();
-        double tempTemp = 0;
 
+        double tempTemp = 0;
         for(Double d : temperatureList){
             tempTemp += d;
         }
@@ -44,6 +43,6 @@ public class Uppgift8Main {
     }
 
     static void main() {
-        Uppgift8Main run = new Uppgift8Main();
+        Uppgift8aMain run = new Uppgift8aMain();
     }
 }
