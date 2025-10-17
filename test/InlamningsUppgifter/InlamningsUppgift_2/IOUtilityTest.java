@@ -8,20 +8,21 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.Arrays;
+import java.time.LocalDate;
 import java.util.List;
 
 class IOUtilityTest {
 
     IOUtility ioUtility = new IOUtility();
+    LocalDate todaysDate = LocalDate.now();
 
     Path inFile = Paths.get("test/InlamningsUppgifter/InlamningsUppgift_2/gym_medlemmar.txt");
     Path outFile = Paths.get("test/InlamningsUppgifter/InlamningsUppgift_2/pt_fil.txt");
 
     @Test
-    public void readDataFromFileTest(){
+    public void readMemberFromFileTest(){
 
-        List<Member> members = ioUtility.readDataFromFile(inFile);
+        List<Member> members = ioUtility.readMemberFromFile(inFile);
 
         assertEquals(20, members.size());
         assertNotEquals(21, members.size());
@@ -31,7 +32,7 @@ class IOUtilityTest {
     @Test
     public void readSpecificDataFromFile(){
 
-        List<Member> members = ioUtility.readDataFromFile(inFile);
+        List<Member> members = ioUtility.readMemberFromFile(inFile);
 
         assertEquals("Fredrik Berggren", members.get(0).getName());
         assertNotEquals("Kalle Bergqvist", members.get(0).getName());
@@ -50,29 +51,21 @@ class IOUtilityTest {
     @Test
     public void writeDataToFileTest(){
 
-        Member c1 = new Member("Fredrik Berggren", "Skolgränd 8, 16819 Norrköping",
-                "fredde@fakemail.se", "851020-6728", "2019-12-30",
-                "2021-12-30", "Platina");
-
-        Member c2 = new Member("Astrid Larsson", "Järnvägsvägen 5, 64230 Gävle",
-                "asta@fakemail.de", "540815-4382", "2021-12-04",
-                "2022-12-04", "Platina");
-
-        Member c3 = new Member("Pia Johansson", "Idrottsvägen 1, 77845 Landskrona",
+        Member member = new Member("Pia Johansson", "Idrottsvägen 1, 77845 Landskrona",
                 "anne31@fakemail.de", "361026-1822", "2024-07-18",
                 "2025-07-18", "Standard");
 
-        List<Member> testMembers = Arrays.asList(c1,c2,c3);
-
-        ioUtility.writeDataToFile(outFile, testMembers);
+        ioUtility.writeMemberToFile(outFile, member);
 
         try(BufferedReader br = Files.newBufferedReader(outFile)){
-            String s = br.readLine();
-            assertTrue(s.equalsIgnoreCase("Fredrik Berggren"));
-            s = br.readLine();
-            assertTrue(s.equalsIgnoreCase("Astrid Larsson"));
-            s = br.readLine();
-            assertTrue(s.equalsIgnoreCase("Pia Johansson"));
+
+            String line = br.readLine();
+            String [] parts = line.split(";");
+
+            assertEquals("Pia Johansson", parts[0]);
+            assertEquals("361026-1822", parts[1]);
+            assertEquals(todaysDate.toString(), parts[2]);
+
 
         } catch (IOException e) {
             throw new RuntimeException(e);
