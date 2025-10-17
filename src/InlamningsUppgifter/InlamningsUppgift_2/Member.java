@@ -1,17 +1,17 @@
 package InlamningsUppgifter.InlamningsUppgift_2;
 
-public class Customer {
+public class Member {
 
-    private String name;
-    private String address;
-    private String email;
-    private String socialSecurityNumber;
-    private String joinDate;
-    private String membershipUpdateDate;
-    private String memberLvl;
+    private final String name;
+    private final String address;
+    private final String email;
+    private final String socialSecurityNumber;
+    private final String joinDate;
+    private final String membershipUpdateDate;
+    private final String memberLvl;
 
-    public Customer(String name, String address, String email, String ssNr,
-                    String joinDate, String updDate, String memberLvl){
+    public Member(String name, String address, String email, String ssNr,
+                  String joinDate, String updDate, String memberLvl){
         this.name = name;
         this.address = address;
         this.email = email;

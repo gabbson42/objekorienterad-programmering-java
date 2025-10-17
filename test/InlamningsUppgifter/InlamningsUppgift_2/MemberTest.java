@@ -4,9 +4,9 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class CustomerTest {
+class MemberTest {
 
-    Customer c = new Customer("Fredrik Berggren", "Skolgränd 8, 16819 Norrköping",
+    Member c = new Member("Fredrik Berggren", "Skolgränd 8, 16819 Norrköping",
             "fredde@fakemail.se", "851020-6728", "2019-12-30",
             "2021-12-30", "Platina");
 
