@@ -2,7 +2,6 @@ package InlamningsUppgifter.InlamningsUppgift_2;
 
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.nio.file.Files;
@@ -59,6 +58,7 @@ class IOUtilityTest {
 
         try(BufferedReader br = Files.newBufferedReader(outFile)){
 
+            br.readLine();
             String line = br.readLine();
             String [] parts = line.split(";");
 
@@ -70,8 +70,5 @@ class IOUtilityTest {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-
-
     }
-
 }

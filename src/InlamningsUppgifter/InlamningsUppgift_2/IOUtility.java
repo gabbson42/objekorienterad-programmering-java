@@ -7,6 +7,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.StandardOpenOption;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 public class IOUtility {
@@ -18,15 +19,17 @@ public class IOUtility {
 
     public List<Member> readMemberFromFile(Path inFile){
 
+        this.memberList = new ArrayList<>();
+
         try(BufferedReader br = Files.newBufferedReader(inFile)){
 
+            String line;
             br.readLine();
-            while(br.readLine() != null) {
-                String line = br.readLine().trim();
+            while((line = br.readLine()) != null) {
                 String [] parts = line.split(";");
 
                 Member member = new Member(parts[0], parts[1], parts[2], parts[3], parts[4], parts[5], parts[6]);
-                memberList.add(member);
+                this.memberList.add(member);
             }
 
         } catch (IOException e) {
@@ -39,7 +42,13 @@ public class IOUtility {
     public void writeMemberToFile(Path outFile, Member member){
 
         String memberInfo = member.getName() + ";" + member.getSocialSecurityNumber() + ";" + todaysDate;
-        try(BufferedWriter bw = Files.newBufferedWriter(outFile, StandardOpenOption.APPEND)){
+        try(BufferedWriter bw = Files.newBufferedWriter(outFile, StandardOpenOption.APPEND);
+            BufferedReader br = Files.newBufferedReader(outFile)){
+
+            if(br.readLine() == null){
+                bw.append("Medlem;Personnummer;Besöksdatum");
+                bw.newLine();
+            }
             bw.append(memberInfo);
             bw.newLine();
         }
