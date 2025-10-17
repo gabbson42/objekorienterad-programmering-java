@@ -7,61 +7,62 @@ import static org.junit.jupiter.api.Assertions.*;
 class CustomerTest {
 
     Customer c = new Customer("Fredrik Berggren", "Skolgränd 8, 16819 Norrköping",
-            "fredde@fakemail.se", "851020-6728", "2019-12-30", "2021-12-30", "Platina");
+            "fredde@fakemail.se", "851020-6728", "2019-12-30",
+            "2021-12-30", "Platina");
 
     @Test
     public void getNameTest(){
 
-        assertTrue(c.getName().equals("Fredrik Berggren"));
-        assertFalse(c.getName().equals("Kalle Bergqvist"));
+        assertEquals("Fredrik Berggren", c.getName());
+        assertNotEquals("Kalle Bergqvist", c.getName());
 
     }
 
     @Test
     public void getAddressTest(){
 
-        assertTrue(c.getAddress().equals("Skolgränd 8, 16819 Norrköping"));
-        assertFalse(c.getAddress().equals("Fakegränd 7, 17645 Fakeköping"));
+        assertEquals("Skolgränd 8, 16819 Norrköping", c.getAddress());
+        assertNotEquals("Fakegränd 7, 17645 Fakeköping", c.getAddress());
 
     }
 
     @Test
     public void getEmailTest(){
 
-        assertTrue(c.getEmail().equals("fredde@fakemail.se"));
-        assertFalse(c.getEmail().equals("kalle@fakemail.se"));
+        assertEquals("fredde@fakemail.se", c.getEmail());
+        assertNotEquals("kalle@fakemail.se", c.getEmail());
 
     }
 
     @Test
     public void getSocialSecurityNumberTest(){
 
-        assertTrue(c.getSocialSecurityNumber().equals("851020-6728"));
-        assertFalse(c.getSocialSecurityNumber().equals("940503-2648"));
+        assertEquals("851020-6728", c.getSocialSecurityNumber());
+        assertNotEquals("940503-2648", c.getSocialSecurityNumber());
 
     }
 
     @Test
-    public void getMembershipPurchaseDateTest(){
+    public void getJoinDateTest(){
 
-        assertTrue(c.getMembershipPurchaseDateTest().equals("2019-12-30"));
-        assertFalse(c.getMembershipPurchaseDateTest().equals("2020-12-30"));
+        assertEquals("2019-12-30", c.getJoinDate());
+        assertNotEquals("2020-12-30", c.getJoinDate());
 
     }
 
     @Test
     public void getMembershipUpdateDateTest(){
 
-        assertTrue(c.getMembershipUpdateDateTest().equals("2021-12-30"));
-        assertFalse(c.getMembershipUpdateDateTest().equals("2023-12-30"));
+        assertEquals("2021-12-30", c.getMembershipUpdateDate());
+        assertNotEquals("2023-12-30", c.getMembershipUpdateDate());
 
     }
 
     @Test
-    public void getMembershipLevelTest(){
+    public void getMemberLvlTest(){
 
-        assertTrue(c.getMembershipLevelTest().equals("Platina"));
-        assertFalse(c.getMembershipLevelTest().equals("Guld"));
+        assertEquals("Platina", c.getMemberLvl());
+        assertNotEquals("Guld", c.getMemberLvl());
 
     }
 
