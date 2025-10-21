@@ -51,6 +51,10 @@ public class Member {
         return memberLvl;
     }
 
+    public boolean isActiveMember(){
+        return isActiveMember(LocalDate.now());
+    }
+
     public boolean isActiveMember(LocalDate dateToday){
 
         LocalDate membershipUpdateDate = LocalDate.parse(getMembershipUpdateDate());
