@@ -9,7 +9,7 @@ public class Main {
 
     /* Exempelpersoner: Gustav Johansson, 361026-1822, Oskar Bengtsson */
 
-    public Main(){
+    public Main() {
 
         Path inFile = Paths.get("src/InlamningsUppgifter/InlamningsUppgift_2/gym_medlemmar.txt");
         Path outFile = Paths.get("src/InlamningsUppgifter/InlamningsUppgift_2/pt_fil.txt");
@@ -19,47 +19,46 @@ public class Main {
 
         List<Member> members = ioU.readMemberFromFile(inFile);
 
-        while(true){
+        while (true) {
 
             IO.println("Vem ska checkas in? Skriv fullt namn eller personnummer. Skriv exit för att avsluta.");
             String input = sc.nextLine();
 
-            if(input.equalsIgnoreCase("exit")){
+            if (input.equalsIgnoreCase("exit")) {
                 return;
             }
 
-            if(input.isBlank()){
+            if (input.isBlank()) {
                 IO.println("Du måste fylla i namn eller personnummer.");
                 IO.println();
                 continue;
             }
 
             boolean isMember = false;
-            for(Member member : members){
-                if(input.equalsIgnoreCase(member.getName()) ||
-                    input.equalsIgnoreCase(member.getSocialSecurityNumber())){
+            for (Member member : members) {
+                if (input.equalsIgnoreCase(member.getName()) ||
+                        input.equalsIgnoreCase(member.getSocialSecurityNumber())) {
 
                     isMember = true;
-                    if(member.isActiveMember()){
+                    if (member.isActiveMember()) {
                         IO.println("Personen är en aktiv medlem med giltigt medlemsskap.");
                         IO.println("Medlemsnivå: " + member.getMemberLvl());
                         ioU.writeMemberToFile(outFile, member);
                         IO.println();
-                    }
-                    else{
+                    } else {
                         IO.println("Personen är en före detta kund utan giltigt medlemsskap.");
                         IO.println();
                     }
                     break;
                 }
             }
-            if(!isMember){
+            if (!isMember) {
                 IO.println("Personen är ej medlem hos oss.");
                 IO.println();
+
             }
 
         }
-
     }
 
     static void main() {
