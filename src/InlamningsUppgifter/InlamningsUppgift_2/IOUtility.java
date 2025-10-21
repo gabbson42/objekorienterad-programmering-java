@@ -14,8 +14,6 @@ public class IOUtility {
 
     private List<Member> memberList;
 
-    LocalDate todaysDate = LocalDate.now();
-
     public List<Member> readMemberFromFile(Path inFile){
 
         this.memberList = new ArrayList<>();
@@ -32,7 +30,9 @@ public class IOUtility {
             }
 
         } catch (IOException e) {
+            IO.println("Fel inträffade vid läsning från fil");
             e.printStackTrace();
+            System.exit(0);
         }
 
         return memberList;
@@ -40,19 +40,26 @@ public class IOUtility {
 
     public void writeMemberToFile(Path outFile, Member member){
 
-        String memberInfo = member.getName() + ";" + member.getSocialSecurityNumber() + ";" + todaysDate;
-        try(BufferedWriter bw = Files.newBufferedWriter(outFile, StandardOpenOption.APPEND);
-            BufferedReader br = Files.newBufferedReader(outFile)){
+        String memberInfo = member.getName() + ";" + member.getSocialSecurityNumber() + ";" + LocalDate.now();
 
-            if(br.readLine() == null){
-                bw.append("Medlem;Personnummer;Besöksdatum");
+        try {
+            boolean fileIsEmpty = !Files.exists(outFile) || Files.size(outFile) == 0;
+
+            try (BufferedWriter bw = Files.newBufferedWriter(outFile,
+                    StandardOpenOption.CREATE, StandardOpenOption.APPEND)) {
+
+                if (fileIsEmpty) {
+                    bw.append("Medlem;Personnummer;Besöksdatum");
+                    bw.newLine();
+                }
+                bw.append(memberInfo);
                 bw.newLine();
             }
-            bw.append(memberInfo);
-            bw.newLine();
         }
         catch(IOException e){
+            IO.println("Fel inträffade vid skrivning till fil");
             e.printStackTrace();
+            System.exit(0);
         }
 
     }

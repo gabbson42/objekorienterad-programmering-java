@@ -1,7 +1,9 @@
 package InlamningsUppgifter.InlamningsUppgift_2;
 
 import org.junit.jupiter.api.Test;
+
 import static org.junit.jupiter.api.Assertions.*;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.nio.file.Files;
@@ -19,7 +21,7 @@ class IOUtilityTest {
     Path outFile = Paths.get("test/InlamningsUppgifter/InlamningsUppgift_2/pt_fil.txt");
 
     @Test
-    public void readMemberFromFileTest(){
+    public void readMemberFromFileTest() {
 
         List<Member> members = ioUtility.readMemberFromFile(inFile);
 
@@ -29,7 +31,7 @@ class IOUtilityTest {
     }
 
     @Test
-    public void readSpecificDataFromFile(){
+    public void readSpecificDataFromFile() {
 
         List<Member> members = ioUtility.readMemberFromFile(inFile);
 
@@ -48,7 +50,12 @@ class IOUtilityTest {
     }
 
     @Test
-    public void writeDataToFileTest(){
+    public void writeDataToFileTest() throws IOException {
+
+        if (Files.exists(outFile)) {
+            Files.delete(outFile);
+        }
+
 
         Member member = new Member("Pia Johansson", "Idrottsvägen 1, 77845 Landskrona",
                 "anne31@fakemail.de", "361026-1822", "2024-07-18",
@@ -56,19 +63,17 @@ class IOUtilityTest {
 
         ioUtility.writeMemberToFile(outFile, member);
 
-        try(BufferedReader br = Files.newBufferedReader(outFile)){
+        try (BufferedReader br = Files.newBufferedReader(outFile)) {
 
             br.readLine();
             String line = br.readLine();
-            String [] parts = line.split(";");
+            String[] parts = line.split(";");
 
             assertEquals("Pia Johansson", parts[0]);
             assertEquals("361026-1822", parts[1]);
             assertEquals(todaysDate.toString(), parts[2]);
 
 
-        } catch (IOException e) {
-            throw new RuntimeException(e);
         }
     }
 }

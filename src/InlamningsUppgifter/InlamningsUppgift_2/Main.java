@@ -1,10 +1,64 @@
 package InlamningsUppgifter.InlamningsUppgift_2;
 
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.time.LocalDate;
+import java.util.List;
+import java.util.Scanner;
+
 public class Main {
 
     public Main(){
 
+        Path inFile = Paths.get("src/InlamningsUppgifter/InlamningsUppgift_2/gym_medlemmar.txt");
+        Path outFile = Paths.get("src/InlamningsUppgifter/InlamningsUppgift_2/pt_fil.txt");
 
+        LocalDate dateToday = LocalDate.now();
+        Scanner sc = new Scanner(System.in);
+        IOUtility ioU = new IOUtility();
+
+        List<Member> members = ioU.readMemberFromFile(inFile);
+
+        while(true){
+
+            IO.println("Vem ska checkas in? Skriv fullt namn eller personnummer. Skriv exit för att avsluta.");
+            String input = sc.nextLine();
+
+            if(input.equalsIgnoreCase("exit")){
+                return;
+            }
+
+            if(input.isBlank()){
+                IO.println("Du måste fylla i namn eller personnummer.");
+                IO.println();
+                continue;
+            }
+
+            boolean isMember = false;
+            for(Member member : members){
+                if(input.equalsIgnoreCase(member.getName()) ||
+                    input.equalsIgnoreCase(member.getSocialSecurityNumber())){
+
+                    isMember = true;
+                    if(member.isActiveMember(dateToday)){
+                        IO.println("Personen är en aktiv medlem med giltigt medlemsskap.");
+                        IO.println("Medlemsnivå: " + member.getMemberLvl());
+                        ioU.writeMemberToFile(outFile, member);
+                        IO.println();
+                    }
+                    else{
+                        IO.println("Personen är en före detta kund utan giltigt medlemsskap.");
+                        IO.println();
+                    }
+                    break;
+                }
+            }
+            if(!isMember){
+                IO.println("Personen är ej medlem hos oss.");
+                IO.println();
+            }
+
+        }
 
     }
 

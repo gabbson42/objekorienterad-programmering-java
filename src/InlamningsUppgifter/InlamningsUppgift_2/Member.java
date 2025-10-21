@@ -1,7 +1,6 @@
 package InlamningsUppgifter.InlamningsUppgift_2;
 
 import java.time.LocalDate;
-import java.time.Period;
 
 public class Member {
 
