@@ -7,7 +7,7 @@ import java.util.Scanner;
 
 public class Main {
 
-    /* Exempelpersoner: Gustav Johansson, 361026-1822, Oskar Bengtsson */
+    /* Exempelpersoner: gustav johansson, 361026-1822, Oskar Bengtsson */
 
     public Main() {
 
@@ -30,7 +30,7 @@ public class Main {
 
             if (input.isBlank()) {
                 IO.println("Du måste fylla i namn eller personnummer.");
-                IO.println();
+                pressEnterToContinue(sc);
                 continue;
             }
 
@@ -44,21 +44,27 @@ public class Main {
                         IO.println("Personen är en aktiv medlem med giltigt medlemsskap.");
                         IO.println("Medlemsnivå: " + member.getMemberLvl());
                         ioU.writeMemberToFile(outFile, member);
-                        IO.println();
+                        pressEnterToContinue(sc);
                     } else {
                         IO.println("Personen är en före detta kund utan giltigt medlemsskap.");
-                        IO.println();
+                        pressEnterToContinue(sc);
                     }
                     break;
                 }
             }
             if (!isMember) {
                 IO.println("Personen är ej medlem hos oss.");
-                IO.println();
-
+                pressEnterToContinue(sc);
             }
 
         }
+    }
+
+    public static void pressEnterToContinue(Scanner sc){
+        IO.println();
+        IO.println("Tryck Enter för att fortsätta.");
+        sc.nextLine();
+
     }
 
     static void main() {
