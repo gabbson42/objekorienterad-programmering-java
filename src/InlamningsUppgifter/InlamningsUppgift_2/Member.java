@@ -1,5 +1,8 @@
 package InlamningsUppgifter.InlamningsUppgift_2;
 
+import java.time.LocalDate;
+import java.time.Period;
+
 public class Member {
 
     private final String name;
@@ -47,5 +50,13 @@ public class Member {
 
     public String getMemberLvl() {
         return memberLvl;
+    }
+
+    public boolean isActiveMember(LocalDate dateToday){
+
+        LocalDate membershipUpdateDate = LocalDate.parse(getMembershipUpdateDate());
+        LocalDate membershipExpireDate = membershipUpdateDate.plusYears(1);
+
+        return !dateToday.isAfter(membershipExpireDate);
     }
 }

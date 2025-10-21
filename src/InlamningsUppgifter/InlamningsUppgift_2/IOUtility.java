@@ -13,7 +13,6 @@ import java.util.List;
 public class IOUtility {
 
     private List<Member> memberList;
-    private List<Member> ptList;
 
     LocalDate todaysDate = LocalDate.now();
 
