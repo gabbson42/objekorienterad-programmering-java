@@ -62,12 +62,20 @@ class IOUtilityTest {
                 "2025-07-18", "Standard");
 
         ioUtility.writeMemberToFile(outFile, member);
+        ioUtility.writeMemberToFile(outFile, member);
 
         try (BufferedReader br = Files.newBufferedReader(outFile)) {
 
             br.readLine();
             String line = br.readLine();
             String[] parts = line.split(";");
+
+            assertEquals("Pia Johansson", parts[0]);
+            assertEquals("361026-1822", parts[1]);
+            assertEquals(todaysDate.toString(), parts[2]);
+
+            line = br.readLine();
+            parts = line.split(";");
 
             assertEquals("Pia Johansson", parts[0]);
             assertEquals("361026-1822", parts[1]);
