@@ -74,7 +74,7 @@ class MemberTest {
         Member member1 = new Member("Pia Johansson", "Idrottsvägen 1, 77845 Landskrona",
                 "anne31@fakemail.de", "361026-1822", "2024-07-18",
                 "2025-07-18", "Standard");
-        Member member = new Member("Fredrik Berggren", "Skolgränd 8, 16819 Norrköping",
+        Member member2 = new Member("Fredrik Berggren", "Skolgränd 8, 16819 Norrköping",
                 "fredde@fakemail.se", "851020-6728", "2019-12-30",
                 "2024-10-20", "Platina");
 
@@ -82,7 +82,7 @@ class MemberTest {
         LocalDate dateToday = LocalDate.parse("2025-10-21");
 
         assertTrue(member1.isActiveMember(dateToday));
-        assertFalse(member.isActiveMember(dateToday));
+        assertFalse(member2.isActiveMember(dateToday));
     }
 
 }
