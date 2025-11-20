@@ -51,7 +51,7 @@ public class KnockKnockServer {
 
             // Initiate conversation with client
             KnockKnockProtocol kkp = new KnockKnockProtocol();
-            outputLine = kkp.processInput("test");
+            outputLine = kkp.processInput("Something");
             out.println(outputLine);
 
             while ((inputLine = in.readLine()) != null) {
